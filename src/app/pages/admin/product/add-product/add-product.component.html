@@ -1,0 +1,64 @@
+<div class="container-add-product">
+    
+    <div class="add-product__form">
+        <div class="add-product__header">
+            <h1>ADD PRODUCT</h1>
+        </div>
+        <form [formGroup]="addProductForm" (ngSubmit)="onSubmit()">
+            <div class="column" >
+                <div>
+                    <p *ngIf="addProductErr != ''"></p>
+                </div>
+                <div class="add-product__form-group">
+                    <mat-form-field class="add-product__mat-form-field" appearance="outline">
+                        <mat-label>Product</mat-label>
+                        <input matInput formControlName="product" type="text" name="product" placeholder="Enter product name" />
+                    </mat-form-field>
+                    <mat-error *ngIf="addProductForm.controls['product'].invalid && (addProductForm.controls['product'].dirty || addProductForm.controls['product'].touched)">
+                        <div *ngIf="addProductForm.controls['product'].errors?.['required']">
+                            Product name is required.
+                          </div>
+                    </mat-error>
+                </div>
+                <div class="add-product__form-group">
+                    <mat-form-field class="add-product__mat-form-field" appearance="outline">
+                        <mat-label>Description</mat-label>
+                        <textarea matInput formControlName="description" type="text" name="description" cols="35" rows="4"
+                            placeholder="Enter product description"></textarea>
+                    </mat-form-field>
+                    <mat-error *ngIf="addProductForm.controls['description'].invalid && (addProductForm.controls['description'].dirty || addProductForm.controls['description'].touched)">
+                        <div *ngIf="addProductForm.controls['description'].errors?.['required']">
+                            Description is required.
+                          </div>
+                    </mat-error>
+                </div>
+                <div class="add-product__form-group">
+                    <mat-form-field class="add-product__mat-form-field" appearance="outline">
+                        <mat-label>Category</mat-label>
+                        <mat-select matInput formControlName="categoryId" name="categoryId" >
+                            <mat-option *ngFor="let category of categories" [value]="category._id">
+                                {{category.category}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="add-product__form-group">
+                    <mat-form-field class="add-product__mat-form-field" appearance="outline">
+                        <mat-label>Price($)</mat-label>
+                        <input matInput formControlName="price" type="number" name="price" placeholder="Enter price" />
+                    </mat-form-field>
+                </div>
+                <div class="add-product__form-group">
+                    <p>Status</p>
+                    <mat-slide-toggle (change)="changeProductStatus($event)"></mat-slide-toggle>
+                </div>
+                
+            </div>
+
+            <div class="add-product__mat-card-btn">
+                <button mat-flat-button color="primary">Submit</button>
+            </div>
+
+        </form>
+    </div>
+</div>

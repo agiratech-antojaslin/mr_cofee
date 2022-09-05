@@ -1,0 +1,64 @@
+<div class="container-edit-product">
+    
+    <div class="edit-product__form">
+        <div class="edit-product__header">
+            <h1>EDIT PRODUCT</h1>
+        </div>
+        <form [formGroup]="editProductForm" (ngSubmit)="onSubmit()">
+            <div class="column" >
+                <div>
+                    <p *ngIf="editProductErr != ''"></p>
+                </div>
+                <div class="edit-product__form-group">
+                    <mat-form-field class="edit-product__mat-form-field" appearance="outline">
+                        <mat-label>Product</mat-label>
+                        <input matInput formControlName="product" type="text" name="product" placeholder="Enter product name" />
+                    </mat-form-field>
+                    <mat-error *ngIf="editProductForm.controls['product'].invalid && (editProductForm.controls['product'].dirty || editProductForm.controls['product'].touched)">
+                        <div *ngIf="editProductForm.controls['product'].errors?.['required']">
+                            Product name is required.
+                          </div>
+                    </mat-error>
+                </div>
+                <div class="edit-product__form-group">
+                    <mat-form-field class="edit-product__mat-form-field" appearance="outline">
+                        <mat-label>Description</mat-label>
+                        <textarea matInput formControlName="description" type="text" name="description" cols="35" rows="4"
+                            placeholder="Enter product description"></textarea>
+                    </mat-form-field>
+                    <mat-error *ngIf="editProductForm.controls['description'].invalid && (editProductForm.controls['description'].dirty || editProductForm.controls['description'].touched)">
+                        <div *ngIf="editProductForm.controls['description'].errors?.['required']">
+                            Description is required.
+                          </div>
+                    </mat-error>
+                </div>
+                <div class="edit-product__form-group">
+                    <mat-form-field class="edit-product__mat-form-field" appearance="outline">
+                        <mat-label>Category</mat-label>
+                        <mat-select matInput formControlName="categoryId" name="categoryId" >
+                            <mat-option *ngFor="let category of categories" [value]="category._id">
+                                {{category.category}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="edit-product__form-group">
+                    <mat-form-field class="edit-product__mat-form-field" appearance="outline">
+                        <mat-label>Price($)</mat-label>
+                        <input matInput formControlName="price" type="number" name="price" placeholder="Enter price" />
+                    </mat-form-field>
+                </div>
+                <div class="edit-product__form-group">
+                    <p>Status</p>
+                    <mat-slide-toggle [checked]="isProductActive == true ? true : false" (change)="changeProductStatus($event)"></mat-slide-toggle>
+                </div>
+                
+            </div>
+
+            <div class="edit-product__mat-card-btn">
+                <button mat-flat-button color="primary">Submit</button>
+            </div>
+
+        </form>
+    </div>
+</div>

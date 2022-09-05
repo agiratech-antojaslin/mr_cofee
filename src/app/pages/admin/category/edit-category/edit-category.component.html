@@ -1,0 +1,48 @@
+<div class="container-edit-category">
+    
+    <div class="edit-category__form">
+        <form [formGroup]="editCategoryForm" (ngSubmit)="onSubmit()">
+            <div class="edit-category__header">
+                <h1>EDIT CATEGORY</h1>
+            </div>
+            <div class="column" >
+                <div>
+                    <p *ngIf="editCategoryErr != ''"></p>
+                </div>
+                <div class="edit-category__form-group">
+                    <mat-form-field class="edit-category__mat-form-field" appearance="outline">
+                        <mat-label>Category</mat-label>
+                        <input matInput formControlName="category" type="text" name="category" placeholder="Enter category name" />
+                    </mat-form-field>
+                    <mat-error *ngIf="editCategoryForm.controls['category'].invalid && (editCategoryForm.controls['category'].dirty || editCategoryForm.controls['category'].touched)">
+                        <div *ngIf="editCategoryForm.controls['category'].errors?.['required']">
+                            Category name is required.
+                          </div>
+                    </mat-error>
+                </div>
+                <div class="edit-category__form-group">
+                    <mat-form-field class="edit-category__mat-form-field" appearance="outline">
+                        <mat-label>Description</mat-label>
+                        <textarea matInput formControlName="description" type="text" name="description" cols="35" rows="4"
+                            placeholder="Enter category description"></textarea>
+                    </mat-form-field>
+                    <mat-error *ngIf="editCategoryForm.controls['description'].invalid && (editCategoryForm.controls['description'].dirty || editCategoryForm.controls['description'].touched)">
+                        <div *ngIf="editCategoryForm.controls['description'].errors?.['required']">
+                            Description is required.
+                          </div>
+                    </mat-error>
+                </div>
+                <div class="edit-category__form-group">
+                    <p>Status</p>
+                    <mat-slide-toggle [checked]="isCategoryActive == true ? true : false" (change)="changeCategoryStatus($event)"></mat-slide-toggle>
+                </div>
+                
+            </div>
+
+            <div class="edit-category__mat-card-btn">
+                <button mat-flat-button color="primary">Submit</button>
+            </div>
+
+        </form>
+    </div>
+</div>

@@ -1,0 +1,129 @@
+@import './theme';
+$primary-clr: #eef3fb;
+$hover-color: #353553;
+$secondary-clr: #8999ff;
+$secondary-font-clr: #959fb7;
+$secondary-bg-clr: #e8ebf1;
+$primary-bg-clr: #a8b3ff;
+
+.logo-text {
+    color: #000;
+    display: inline-block;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.example-container {
+    width: 100%;
+    height: 100vh;
+    
+    //border: 1px solid #555;
+  }
+.link-sidebar {
+    padding: 0px 10px 0px 10px;
+    //background-color: $primary-clr;
+    width: 90%;
+    margin: 3px;
+    color: $secondary-font-clr;
+    box-shadow: none;
+    text-align: left;
+    vertical-align: super;
+    font-weight: 500;
+    text-decoration: none;
+    // font-size: 18px;
+}
+mat-drawer {
+    width: 250px;
+}
+.mat-drawer {
+    background-color: $primary-clr;
+}
+// body {
+//     background-color: #fff;
+// }
+.mat-toolbar {
+    background-color: #fff;
+    // color: #000;
+}
+.mat-drawer-container {
+    background-color: #f9fbfd;
+}
+.mat-raised-button {
+    padding: 10px;
+    background-color: $primary-clr;
+    width: 90%;
+    margin: 3px;
+    color: $secondary-font-clr;
+    box-shadow: none;
+    text-align: left;
+}
+.mat-raised-button.active {
+    background-color: $secondary-clr;
+    color: #fff;
+}
+.item-sidebar {
+    color: $secondary-font-clr;
+    margin: 5px;
+    border-radius: 5px;
+    padding: 12px;
+    .mat-icon {
+        padding: 5px;
+        background-color: $secondary-bg-clr;
+        border-radius: 3px;
+        color: $secondary-font-clr;
+    }
+    
+}
+.item-sidebar:hover {
+    background-color: $secondary-clr;
+    color: #fff;
+    .link-sidebar {
+        color: #fff;
+    }
+    .mat-icon {
+        background-color: $primary-bg-clr;
+        color: #fff;
+    }
+}
+.mat-icon {
+    color: #000;
+}
+.mat-form-field {
+
+}
+.mat-form-field-appearance-outline .mat-form-field-outline-start, .mat-form-field-appearance-outline .mat-form-field-outline-end {
+    border: 1px solid #000 !important;
+}
+::ng-deep {
+    .mat-form-field-appearance-outline .mat-form-field-outline {
+       color: $secondary-font-clr;
+    }
+    mat-form-field {
+       .mat-hint, input, ::placeholder, .mat-form-field-label {
+          color: $secondary-font-clr;
+       }
+    }
+ }
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+.mat-form-field-appearance-outline .mat-form-field-infix {
+    //padding: 0.5em 0 0.5em 0 !important;
+}
+.avatar {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+.mat-icon-button {
+    width: 100px;
+}
+// #mat-menu-panel-0 {
+//     background: #424242;
+//     color: #8999ff !important;
+// }
+.mat-menu-panel{
+    background-color: #353553;
+}

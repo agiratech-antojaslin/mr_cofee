@@ -1,0 +1,13 @@
+@import './../../../../constants';
+
+.container-delete {
+    text-align: center;
+
+    &__action-btns {
+        .mat-flat-button {
+            border-radius: 0px;
+            background-color: $secondary-clr;
+            margin: 5px;
+        }
+    }
+}

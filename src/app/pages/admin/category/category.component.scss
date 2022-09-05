@@ -1,0 +1,68 @@
+// $primary-clr: #eef3fb;
+// $hover-color: #353553;
+// $secondary-clr: #8999ff;
+// $secondary-font-clr: #959fb7;
+// $secondary-bg-clr: #e8ebf1;
+// $primary-bg-clr: #a8b3ff;
+@import './../../../constants';
+
+table {
+    width: 100%;
+  }
+.container-category {
+    margin: 20px;
+}
+.mat-header-cell {
+    background-color: #fff;
+    color: #000;
+    font-size: 18px;
+}
+.mat-cell {
+    background-color: #fff;
+    color: $secondary-font-clr;
+}
+.mat-table {
+    box-shadow: 3px 5px 5px #e8ebf1;
+}
+.table-header {
+    color: #000;
+}
+.mat-header-cell {
+    background-color: $secondary-clr;
+    color: white;
+}
+tr.mat-row:nth-child(2n) {
+    td {
+        background-color: #f8f4f1;
+    }   
+}
+.mat-flat-button {
+    background-color: $secondary-clr;
+    //border-radius: 0px;
+}
+
+::ng-deep {
+    .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+        background-color: $primary-clr;
+    }
+    .mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+        background-color: $secondary-bg-clr;
+    }
+    .mat-flat-button {
+        //background-color: $secondary-clr;
+        border-radius: 0px;
+    }
+    .mat-cell .mat-icon-button {
+        border-radius: 0px;
+        background-color: $secondary-clr;
+        color: $primary-clr !important;
+        margin-left: 2px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}
+::ng-deep .mat-dialog-container {
+    background-color: $primary-clr;
+    // padding: 0px 0px 0px 0px !important;
+    // overflow: hidden !important;
+}

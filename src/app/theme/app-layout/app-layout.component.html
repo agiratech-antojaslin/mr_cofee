@@ -1,0 +1,80 @@
+<!-- <mat-toolbar>
+  
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="drawer.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Cafe M</span>
+</mat-toolbar> -->
+<mat-drawer-container class="example-container" *ngIf="showAdminPanel">
+  
+    <mat-drawer #drawer mode="side" opened>
+      <!-- <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p> -->
+      <!-- <button (click)="showFiller = !showFiller" mat-raised-button>
+        Toggle extra text
+      </button> -->
+      <div class="logo">
+        <img src="../../../assets/images/cofeeeee-removebg-preview.png" width="200" height="200" alt="">
+      </div>
+      <div class="item-sidebar">
+        <mat-icon aria-hidden="false" fontIcon="dashboard"></mat-icon>
+        <a routerLink="dashboard" class="link-sidebar">Dashboard</a>
+      </div>
+      <div class="item-sidebar">
+        <mat-icon aria-hidden="false" fontIcon="category"></mat-icon>
+        <a routerLink="category" class="link-sidebar" >Categories</a>
+      </div>
+      <div class="item-sidebar">
+        <mat-icon aria-hidden="false" fontIcon="coffee">cofee</mat-icon>
+        <!-- <img src="../../../assets/images/coffee-cup.png" class="item-sidebar__icon" alt=""> -->
+        <a routerLink="product" class="link-sidebar" >Products</a>
+      </div>
+      
+    </mat-drawer>
+    <mat-drawer-content>
+      <div class="header">
+        <div class="header-left">
+          <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="drawer.toggle()">
+            <mat-icon>arrow_right_alt</mat-icon>
+          </button>
+        </div>
+        <div class="header-right">
+          <form>
+            <mat-form-field appearance="outline">
+              <input matInput type="search" placeholder="search here" class="search-input">
+              <mat-icon matSuffix>search</mat-icon>
+            </mat-form-field>
+          <!-- <mat-form-field appearance="fill">
+            <mat-label>Hi Jaslin</mat-label>
+            <mat-select>
+              <mat-option>
+                Change password
+              </mat-option>
+              <mat-option>
+                Logout
+              </mat-option>
+            </mat-select>
+          </mat-form-field> -->
+            <button mat-icon-button [matMenuTriggerFor]="profileMenu" *ngIf="showAdminPanel">
+              <!-- <i class="fa fa-user white-icon" aria-hidden="true"></i> -->
+              <img class="avatar" src="../../assets/images/profile.jpg">
+            </button>
+          
+            <mat-menu #profileMenu="matMenu">
+              <button mat-menu-item routerLink="/profile"> <i class="fa fa-user" aria-hidden="true"></i> Profile </button>
+              <button mat-menu-item (click)="logout()"> <i class="fa fa-sign-out" aria-hidden="true"></i> Logout </button>
+            </mat-menu>
+          </form>
+          
+        </div>
+      </div>
+      <router-outlet></router-outlet>
+    </mat-drawer-content>
+  </mat-drawer-container>
+  
+  <div class="container" *ngIf="!showAdminPanel">
+    <router-outlet></router-outlet>
+  </div>
+  
+  <!-- Copyright 2022 Google LLC. All Rights Reserved.
+      Use of this source code is governed by an MIT-style license that
+      can be found in the LICENSE file at https://angular.io/license -->

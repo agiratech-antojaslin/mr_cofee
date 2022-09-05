@@ -1,0 +1,47 @@
+@import './../../../../constants';
+
+.container-edit-category {
+    color: #000;
+    margin: 20px;
+}
+.edit-category {
+    &__header {
+        text-align: center;
+        color: $white-clr;
+    }
+    &__form {
+        width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: $primary-clr;
+        padding: 20px;
+
+        &-group {
+            padding: 20px;
+            .mat-form-field {
+                width: 100%;
+                color: $white-clr;
+            }
+            p {
+                color: $secondary-font-clr;
+            }
+        }
+    }
+    &__mat-card-btn {
+        text-align: right;
+        margin-right: 20px;
+
+        button {
+            border-radius: 0px;
+            background-color: $secondary-clr;
+        }
+    }
+}
+::ng-deep {
+    .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+        background-color: $primary-clr;
+    }
+    .mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+        background-color: $secondary-bg-clr;
+    }
+}

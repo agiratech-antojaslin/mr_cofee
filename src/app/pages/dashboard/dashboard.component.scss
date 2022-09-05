@@ -1,0 +1,30 @@
+$primary-clr: #eef3fb;
+$hover-color: #353553;
+$secondary-clr: #8999ff;
+$secondary-font-clr: #959fb7;
+$secondary-bg-clr: #e8ebf1;
+$primary-bg-clr: #a8b3ff;
+
+.container-dashboard {
+    margin: 20px;
+    color: $secondary-font-clr;
+    .dashboard-details {
+        padding: 20px;
+        display: flex;
+        justify-content: space-around;
+        .detail-item {
+            width: 100%;
+            .detail {
+                margin: 10px;
+                background-color: #fff;
+                padding: 20px;
+                //border-radius: 5px;
+                box-shadow: 3px 5px 5px $secondary-bg-clr;
+                .detail-data {
+                    color: #000;
+                }
+            }
+        }
+    }
+}
+

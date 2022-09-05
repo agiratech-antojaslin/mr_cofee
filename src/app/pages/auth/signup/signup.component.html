@@ -1,0 +1,62 @@
+<section class="sign-up">
+    <div class="sign-up__mat-card">
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+            <div class="column" >
+                <div>
+                    <h2>Sign Up</h2>
+                </div>
+                <div>
+                    <mat-form-field class="sign-up__mat-form-field" appearance="outline">
+                        <mat-label>Name</mat-label>
+                        <input matInput formControlName="name" type="text" name="name" placeholder="Name" />
+                    </mat-form-field>
+                    <mat-error *ngIf="signupForm.controls['name'].invalid && (signupForm.controls['name'].dirty || signupForm.controls['name'].touched)">
+                        <div *ngIf="signupForm.controls['name'].errors?.['required']">
+                            Name is required.
+                          </div>
+                          <!-- <div *ngIf="signupForm.controls['name'].errors?.['minlength']">
+                            Password should be atleast 5 characters long.
+                          </div> -->
+                    </mat-error>
+                </div>
+                <div>
+                    <mat-form-field class="sign-up__mat-form-field" appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input matInput formControlName="email" type="email" name="email" placeholder="Email" />
+                    </mat-form-field>
+                    <mat-error *ngIf="signupForm.controls['email'].invalid && (signupForm.controls['email'].dirty || signupForm.controls['email'].touched)">
+                        <div *ngIf="signupForm.controls['email'].errors?.['required']">
+                            Email is required.
+                          </div>
+                          <div *ngIf="signupForm.controls['email'].errors?.['email']">
+                            Invalid Email Id.
+                          </div>
+                    </mat-error>
+                </div>
+                <div>
+                    <mat-form-field class="sign-up__mat-form-field" appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input matInput formControlName="password" type="password" name="password"
+                            placeholder="********" />
+                    </mat-form-field>
+                    <mat-error *ngIf="signupForm.controls['password'].invalid && (signupForm.controls['password'].dirty || signupForm.controls['password'].touched)">
+                        <div *ngIf="signupForm.controls['password'].errors?.['required']">
+                            Password is required.
+                          </div>
+                          <div *ngIf="signupForm.controls['password'].errors?.['minlength']">
+                            Password should be atleast 5 characters long.
+                          </div>
+                    </mat-error>
+                </div>
+                <div>
+                    <p>Already have an account? <a class="sign-up__mat-form-link" routerLink="">Sign In</a></p>
+                </div>
+            </div>
+
+            <div class="sign-up__mat-card-btn">
+                <button mat-flat-button color="primary">Sign Up</button>
+            </div>
+
+        </form>
+    </div>
+</section>

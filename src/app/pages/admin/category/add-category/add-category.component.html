@@ -1,0 +1,48 @@
+<div class="container-add-category">
+    
+    <div class="add-category__form">
+        <div class="add-category__header">
+            <h1>ADD CATEGORY</h1>
+        </div>
+        <form [formGroup]="addCategoryForm" (ngSubmit)="onSubmit()">
+            <div class="column" >
+                <div>
+                    <p *ngIf="addCategoryErr != ''"></p>
+                </div>
+                <div class="add-category__form-group">
+                    <mat-form-field class="add-category__mat-form-field" appearance="outline">
+                        <mat-label>Category</mat-label>
+                        <input matInput formControlName="category" type="text" name="category" placeholder="Enter category name" />
+                    </mat-form-field>
+                    <mat-error *ngIf="addCategoryForm.controls['category'].invalid && (addCategoryForm.controls['category'].dirty || addCategoryForm.controls['category'].touched)">
+                        <div *ngIf="addCategoryForm.controls['category'].errors?.['required']">
+                            Category name is required.
+                          </div>
+                    </mat-error>
+                </div>
+                <div class="add-category__form-group">
+                    <mat-form-field class="add-category__mat-form-field" appearance="outline">
+                        <mat-label>Description</mat-label>
+                        <textarea matInput formControlName="description" type="text" name="description" cols="35" rows="4"
+                            placeholder="Enter category description"></textarea>
+                    </mat-form-field>
+                    <mat-error *ngIf="addCategoryForm.controls['description'].invalid && (addCategoryForm.controls['description'].dirty || addCategoryForm.controls['description'].touched)">
+                        <div *ngIf="addCategoryForm.controls['description'].errors?.['required']">
+                            Description is required.
+                          </div>
+                    </mat-error>
+                </div>
+                <div class="add-category__form-group">
+                    <p>Status</p>
+                    <mat-slide-toggle (change)="changeCategoryStatus($event)"></mat-slide-toggle>
+                </div>
+                
+            </div>
+
+            <div class="add-category__mat-card-btn">
+                <button mat-flat-button color="primary">Submit</button>
+            </div>
+
+        </form>
+    </div>
+</div>
